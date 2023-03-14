@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.kie</groupId>
     <artifactId>drools-build-parent</artifactId>
-    <version>8.36.0-SNAPSHOT</version>
+    <version>quarkus-3-SNAPSHOT</version>
     <relativePath>../build-parent/pom.xml</relativePath>
   </parent>
 
@@ -128,8 +128,9 @@
     </dependency>
     <dependency>
       <groupId>org.jboss.narayana.jta</groupId>
-      <artifactId>narayana-jta</artifactId>
+      <artifactId>narayana-jta-jakarta</artifactId>
       <scope>test</scope>
+      <version>5.13.1.Alpha1</version>
     </dependency>
     <dependency>
       <groupId>org.jboss</groupId>
@@ -138,9 +139,13 @@
     </dependency>
 
     <!-- Hibernate -->
-    <dependency>
+    <!--~~(Unable to download POM. Tried repositories:
+https://bxms-qe.rhev-ci-vms.eng.rdu2.redhat.com:8443/nexus/content/groups/kogito-runtimes-pr-artifacts-group/: java.net.SocketTimeoutException: Read timed out
+https://repository.jboss.org/nexus/content/groups/kogito-public: HTTP 404)~~>--><!--~~(Unable to download POM. Tried repositories:
+https://bxms-qe.rhev-ci-vms.eng.rdu2.redhat.com:8443/nexus/content/groups/kogito-runtimes-pr-artifacts-group/: Did not attempt to download because of a previous failure to retrieve from this repository.
+https://repository.jboss.org/nexus/content/groups/kogito-public: Did not attempt to download because of a previous failure to retrieve from this repository.)~~>--><dependency>
       <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
+      <artifactId>hibernate-core-jakarta</artifactId>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -152,6 +157,7 @@
           <artifactId>jandex</artifactId>
         </exclusion>
       </exclusions>
+      <version>5.6.x</version>
     </dependency>
     <dependency>
       <groupId>${jandex.group-id}</groupId>
